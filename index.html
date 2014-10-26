@@ -1,0 +1,144 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Savedo</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+	 <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="js/vendor/modernizr.js"></script>
+	<style>
+		.nav a, .nav button {width:100%;}
+		.panel {background:#fff;}
+		.none {display:none;}
+		.selected {background:rgb(0,112,149);}
+	</style>
+  </head>
+  <body>
+    
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Welcome to SAVEDO</h1>
+      </div>
+    </div>
+	
+	 <div class="row">
+	  <div class="large-3 medium-4 columns">           
+		<div class="panel nav" id="sidebar" >
+			<a href="#" class="medium button selected" id="show_current_balance">Check Balance</a>
+			<a href="#" class="medium button" id="show_add_payee">Add Payee</a>
+			<a href="#" class="medium button" id="show_make_transfer">Make Transfer</a>
+        </div>
+      </div>
+      <div class="large-9 medium-8 columns">
+		<div class="panel">
+        <!-- Grid Example -->
+			<div class="row">
+				<div class="large-12 columns">
+					<h3>Current Balance:</h3>
+				</div>
+			</div>
+			<div class="row" id="current_balance">
+				<div class="large-6 medium-6 columns">
+				</div>
+				<div class="large-6 medium-6 columns">
+					<div class="panel">
+						<p>&euro; <span id="current_account_balance"></span></p>
+					</div>
+				</div>
+			</div>
+			<hr />
+			<div class="row">
+				<div class="large-12 columns">
+					<h3>Add Payee:</h3>
+				</div>
+			</div>   
+			<form data-abide action="#" method="post" id = "add_payee_form">
+				<div data-alert  class="alert-box success radius none" id="payee_alert_box" >
+								Successfully Payee added.
+								<a href="#" class="close">&times;</a>
+				</div>	
+				<div class="row">
+				    <div class="large-12 columns">
+				      <label for="payee_name">Payee Name <small>Required</small>:</label>
+				      <input type="text" placeholder="" id="payee_name" name="payee_name" required />
+					  <small class="error">Payee Name is required.</small>
+				    </div>
+				 </div>
+				 <div class="row">
+				    <div class="large-12 columns">
+				      <label for="bank_account">Bank Account <small>Required</small>:</label>
+				      <input type="text" id="bank_account" name="bank_account" required />
+					  <small class="error">Bank Account is required.</small>
+				    </div>
+				  </div>
+				  <div class="row">
+				    <div class="large-12 columns">
+				      <label for="iban">IBAN <small>Required</small>:</label>
+				      <input type="text" id="iban" name="iban" required/>
+					  <small class="error">IBAN is required.</small>
+				    </div>
+				  </div>
+				  <div class="row">
+					<div class="large-6 columns">
+				    </div>
+					<div class="large-6 columns nav">
+						<button  type="submit" class="medium button" id="create_payee">Add Payee</button>
+					</div>
+				  </div>
+			</form>
+			<hr />
+			<div class="row">
+				<div class="large-12 columns">
+					<h3>Make Transfer:</h3>
+				</div>
+			</div>
+			<form data-abide action="#" method="post" id="make_transfer_form">
+				<div data-alert  class="alert-box success radius none" id="transfer_alert_box" >
+								Successfully transferred .
+								<a href="#" class="close">&times;</a>
+				</div>
+				<div class="row">
+				    <div class="large-12 columns">
+				      <label for="choose_payee_name">Select Payee <small>Required</small>:</label>
+				      <select id="choose_payee_name" name="choose_payee_name" required >
+				      </select>
+					  <small class="error">Payee should be selected.</small>
+				    </div>
+				</div>
+				<div class="row">
+				    <div class="large-6 columns">
+				      <div class="row collapse">
+				        <label for="amount_transfer">Enter Amount <small>Required</small>:</label>
+				        <div class="small-2 columns">
+							<span class="prefix">&euro;</span>
+						</div>
+						<div class="small-10 columns">
+							<input type="text" id="amount_transfer" name="amount_transfer" pattern="number" required pattern=""/>
+							<small class="error">Amount should be selected and must be number</small>
+						</div>
+				      </div>
+				    </div>
+					<div class="large-6 columns">
+				      <label for="date">Date:</label>
+				      <input type="text" id="date" />
+				    </div>
+				</div>
+				<div class="row">
+					<div class="large-6 columns">
+				    </div>
+				    <div class="large-6 columns nav">
+						<button type="submit" class="medium button" id="make_transfer">Transfer</button>
+				    </div>
+				</div>				 
+			</form>
+      </div>
+</div>	  
+    </div>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	 <script src="js/main.js"></script>
+  </body>
+</html>
